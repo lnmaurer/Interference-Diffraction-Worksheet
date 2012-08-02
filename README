@@ -1,0 +1,9 @@
+This is the worksheet that evolved from the one I use for teaching the interference and diffraction lab for UW-Madison's Physics 248 in Spring 2012. That class is the introductory E&M class for physics majors, but the worksheet could probably be modified to work for other classes.
+
+The lab relies on the Interference Inference Interface, a wave simulation. That's available at
+
+https://github.com/lnmaurer/Interference-Inference-Interface
+
+The main file is "InterferenceDiffraction Worksheet.lyx", a lyx document. See http://www.lyx.org/
+
+That file contains notes with answers to the questions.
