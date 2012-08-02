@@ -1,0 +1,3273 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5cm
+\topmargin 2cm
+\rightmargin 1.5cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+LC-1: Diffraction and Interference
+\end_layout
+
+\begin_layout Date
+5/15/12
+\end_layout
+
+\begin_layout Standard
+\align center
+Name:
+\bar under
+
+\begin_inset space \hspace{}
+\length 2in
+\end_inset
+
+ 
+\bar default
+Section:
+\bar under
+
+\begin_inset space \hspace{}
+\length 2in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Much of this lab is a repeat of what was covered in lecture.
+ While that means some of this will be redundant, my hope is to help you
+ build up intuition to support the lecture's equations.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Physics education research has shown that this material is tricky to teach.
+ I've tried to model this lab on an approach shown to be effective.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wosilait:S5"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diffraction and interference are phenomena that happen when waves interact.
+ There's not a clear distinction between the two, but -- for our purposes
+ -- we'll think about interference as the effect arising from point sources
+ (wave sources that are very small -- like the single oscillating charges
+ in lecture) and diffraction as the effect from large sources.
+ I realize that's vague, but it should become clearer by the end of the
+ lab.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Young_Diffraction.png
+	width 50page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Thomas Young's illustration of interference -- waves radiating out from
+ point sources A and B.
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Page 457-471 for chapter, 776 for figure."
+key "Young1807"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Young"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ancestor to these experiments was first performed by Thomas Young in
+ 1803, and it was instrumental in convincing scientists that light was a
+ wave.
+ Before that, most held Newton's view that light was made out of particles.
+ See Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Young"
+
+\end_inset
+
+ for his illustration of the double slit interference experiment; you'll
+ make a similar picture soon on the computer.
+ He did some interesting experiments before that too, including one which
+ would make MacGyver proud: he measured the wavelength of light using only
+ a hair and a candle.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Young1802,Young1804"
+
+\end_inset
+
+ Thomas Young's exploits weren't limited to physics; he did everything from
+ help decipher the Rosetta Stone to study how the heart works.
+ The cited interestingly-titled book about him has been on my reading list
+ for a while.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LastMan"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We'll be using two tools in this lab, a computer simulation
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The simulation software is available at 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://github.com/lnmaurer/Interference-Inference-Interface"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ and a laser based experiment.
+ Both wave sources have two important properties:
+\end_layout
+
+\begin_layout Enumerate
+All sources have the same frequency.
+\end_layout
+
+\begin_layout Enumerate
+All sources have the same phase (they're all doing the same thing at every
+ moment in time.)
+\end_layout
+
+\begin_layout Standard
+The second isn't necessary (as shown in lecture, a constant phase difference
+ will do), but it'll make the math simpler.
+\end_layout
+
+\begin_layout Section
+Computer Simulations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename double_slit.png
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The simulation software's interface.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:interface"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's review some key points about the simulation and its interface (Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:interface"
+
+\end_inset
+
+).
+ You can think of the simulation displaying water waves, but the mathematics
+ behind the scenes describes electromagnetic waves.
+ Specifically, it simulates waves that are uniform in 
+\begin_inset Formula $z$
+\end_inset
+
+; the value only depends on the 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ position.
+ So, it only shows a 2D, 
+\begin_inset Formula $xy$
+\end_inset
+
+ slice in the top left and bottom left plots.
+ The units are arbitrary; they're just called 'd'.
+ Note that being uniform in 
+\begin_inset Formula $z$
+\end_inset
+
+ means that everything extends to infinity in the 
+\begin_inset Formula $z$
+\end_inset
+
+ direction -- including the barrier and the slits in it!
+\end_layout
+
+\begin_layout Standard
+Speaking of which, in the simulation, a plane wave propagating to the right
+ hits a barrier (drawn in red) and is only let through the openings you
+ make.
+ These openings are the sources.
+ They fulfill both of our requirements: the waves coming out of the openings
+ are at the same frequency and phase.
+ The waves from these sources then propagate to the right, mingle, and give
+ us interference and diffraction effects.
+\end_layout
+
+\begin_layout Standard
+The top left plot shows the instantaneous value of 
+\begin_inset Formula $E_{z}$
+\end_inset
+
+ (the 
+\begin_inset Formula $z$
+\end_inset
+
+ component of the electric field).
+ Black is the minimum value, white is the maximum value, and shades of gray
+ are in between.
+ The bottom left plot shows
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ -- an average value instead of an instantaneous one.
+ Here, black corresponds to a value of zero (since negative RMS values aren't
+ possible).
+ This plot can also be made to show 
+\begin_inset Formula $E_{zRMS}^{2}$
+\end_inset
+
+, which is proportional to the light wave's intensity.
+\end_layout
+
+\begin_layout Standard
+The other three plots show 1D slices taken along the vertical and horizontal
+ dashed lines.
+ The yellow curve shows 
+\begin_inset Formula $E_{z}$
+\end_inset
+
+, and the green curve shows 
+\begin_inset Formula $\pm\sqrt{2}E_{zRMS}$
+\end_inset
+
+, an envelope for 
+\begin_inset Formula $E_{z}$
+\end_inset
+
+.
+ The zero for both curves is right down the middle of the figures' long
+ axes.
+ However, the green curve can also be set to show 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ or 
+\begin_inset Formula $E_{zRMS}^{2}$
+\end_inset
+
+, in which case zero is along an edge of the plot.
+\end_layout
+
+\begin_layout Standard
+The cyan text shows the distances from the center of each opening to the
+ intersection of the slices.
+ The text between the two vertical plots shows information about the point
+ where the slices intersect: its position, 
+\begin_inset Formula $E_{z}$
+\end_inset
+
+, and 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ values.
+\end_layout
+
+\begin_layout Standard
+The right part of the screen lets you set the openings in the barrier.
+\end_layout
+
+\begin_layout Standard
+Note that for the 2D plots, 
+\begin_inset Formula $y$
+\end_inset
+
+ is zero at the top and increases as you go down.
+\end_layout
+
+\begin_layout Subsection
+First Simulation: A point source
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename water.jpg
+	width 3in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ripples from a water drop, another type of point source.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:water"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First, let's try a simple example that doesn't really show interference
+ or diffraction, but will get you familiar with our sources.
+ Set up the barrier so that there's only one gap in the middle (top=160,
+ bottom=140), and run the simulation until 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ has stabilized.
+\end_layout
+
+\begin_layout Standard
+Describe the waves in 
+\begin_inset Formula $E_{z}$
+\end_inset
+
+.
+ How does it differ from the water waves shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:water"
+
+\end_inset
+
+ caused by a drop of water? The point sources in lecture produce waves similar
+ to that in some ways.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The main point is that the waves aren't radially symmetric in the 
+\begin_inset Formula $xy$
+\end_inset
+
+ plane; they're focused in 
+\begin_inset Formula $+\hat{x}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What would 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ look like for the lecture source and how is this different from the 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ shown? Remember that the field from the sources in lecture decreased like
+ 
+\begin_inset Formula $\frac{1}{r}$
+\end_inset
+
+.
+ Does our field do that? Look at a horizontal slice through the middle of
+ the slit.
+ What's the fundamental difference between that situation and our situation?
+\begin_inset VSpace 1in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The big difference is that these waves are in 2D -- not 3D as in class.
+ That means their magnitude will fall off more slowly with distances.
+ It's also still true that 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ is focused in one direction rather than radially symmetric.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Second Simulation: Double Slit Interference
+\end_layout
+
+\begin_layout Standard
+Now that we have a basis for comparison, set up the barriers with two slits:
+ (top=70, bottom=50) and (top=250, bottom=230).
+ Run the simulation until 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ has stabilized.
+ Now, find 4 points that are maxima of 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ along the vertical 1D slice.
+ This is known as constructive interference.
+ In this lab, don't measure the global maxima that are right next to the
+ openings in the barrier.
+\end_layout
+
+\begin_layout Standard
+Measure the positions as accurately as possible; use the arrow keys for
+ fine control and watch the value of 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ at the intersection of the slices to home in on the maximum.
+ For each maximum, record the distances from the two openings in the table,
+ and then fill out the remaining columns (the wavelength, 
+\begin_inset Formula $\lambda=20$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distance from Opening 0 (
+\begin_inset Formula $d_{0})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distance from Opening 1 (
+\begin_inset Formula $d_{1}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left|d_{0}-d_{1}\right|$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\left|d_{0}-d_{1}\right|}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maximum 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maximum 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maximum 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maximum 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What type of numbers are 
+\begin_inset Formula $\frac{\left|d_{0}-d_{1}\right|}{\lambda}$
+\end_inset
+
+ (approximately)?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $n\lambda$
+\end_inset
+
+ where 
+\begin_inset Formula $\lambda\in\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, repeat the process except look for minima of 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+.
+ This is known as destructive interference.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distance from Opening 0 (
+\begin_inset Formula $d_{0}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distance from Opening 1 (
+\begin_inset Formula $d_{1}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left|d_{0}-d_{1}\right|$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\left|d_{0}-d_{1}\right|}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minimum 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minimum 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minimum 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minimum 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What type of numbers are 
+\begin_inset Formula $\frac{\left|d_{0}-d_{1}\right|}{\lambda}$
+\end_inset
+
+ (approximately)?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(n+\frac{1}{2}\right)\lambda$
+\end_inset
+
+ where 
+\begin_inset Formula $\lambda\in\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, let's figure out why that is.
+ The intersection of the lines in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:constructive"
+
+\end_inset
+
+ is a point of constructive or destructive interference.
+ There are marks 
+\series bold
+every quarter wavelength
+\series default
+ and big marks are 
+\series bold
+every wavelength
+\series default
+ along the lines connecting the openings' centers to the measurement point.
+ Draw a sinusoidal wave along each of these lines, assuming that the wave
+ is a 
+\series bold
+maximum at the opening
+\series default
+ and that the waves' amplitude doesn't decrease with distance.
+\end_layout
+
+\begin_layout Standard
+Note that you're drawing the wave at a snapshot in time.
+ Even though the waves will be changing in time, the relation between the
+ wave's value at the opening and the wave's value at the interference point
+ will always remain the same.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename constructive.eps
+	height 6in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+First case.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:constructive"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this case, would the measurement point be a maximum or a minimum in 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+? Why?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Both waves will be maxima at their intersection, so this is constructive
+ interference.
+ Know that a surprising number of students had trouble drawing these waves;
+ e.g.
+ they'd treat each tick mark as a half wavelength.
+ But, once drawn correctly, they usually figure out what's going on quite
+ quickly.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, do the same for Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:destructive"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename destructive.eps
+	height 6in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Second case.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:destructive"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this case, would the measurement point be a maximum or a minimum in 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+? Why?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The top wave will be at a maxima, and the bottom wave will be at a minima,
+ so this is an example of destructive interference.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Those situations were special cases.
+ In one, both distances were an integer number of wavelengths, but that's
+ not required for constructive interference; all that's necessary is that
+ the difference between the lengths is an integral number of wavelengths.
+ That insures that both waves are doing the same thing at the interference
+ point; they're in phase (so that they add together instead of canceling
+ one another).
+\end_layout
+
+\begin_layout Standard
+Let's show that mathematically.
+ Say 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ is the distance along the first line and 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ is the distance along the second line.
+ Then the curves you drew were 
+\begin_inset Formula $\cos\left(kx_{0}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\cos\left(kx_{1}\right)$
+\end_inset
+
+.
+ Show that 
+\begin_inset Formula $\cos\left(kx_{0}\right)=\cos\left(kx_{1}\right)$
+\end_inset
+
+ if 
+\begin_inset Formula $x_{1}-x_{0}=n\lambda$
+\end_inset
+
+, where 
+\begin_inset Formula $n$
+\end_inset
+
+ is an integer.
+ Hint: write 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\cos\left(kx_{1}\right)=\cos\left(k\left(x_{1}-x_{0}+x_{0}\right)\right)$
+\end_inset
+
+ and then rewrite 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\cos\left(kx_{1}\right)=\cos\left(k\left(x_{1}-x_{0}+x_{0}\right)\right)=\cos\left(k\left(n\lambda+x_{0}\right)\right)=\cos\left(\frac{2\pi}{\lambda}n\lambda+kx_{0}\right)=\cos\left(2\pi n+kx_{0}\right)=\cos\left(kx_{0}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, none of the minima in 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ are zeros.
+ We could show that they should be zeros using an argument similar to the
+ one you just made.
+ However, we made two assumptions earlier, in drawing the waves.
+ Which one of them is wrong? How does that explain why the minima aren't
+ zeros?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The waves' amplitudes do decrease with distance, so the wave that travels
+ further will have a smaller magnitude.
+ Because their magnitudes differ, they won't cancel out exactly, so 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ won't quite be zero.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This effect is small, so the earlier conclusions are still excellent approximati
+on.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+For the sources in lecture, the interference term went like 
+\begin_inset Formula $\frac{1}{x_{0}x_{1}}\cos\left(k\left(x_{0}-x_{1}\right)\right)$
+\end_inset
+
+, so that's the term you'd have to maximize or minimize.
+ However, its extrema are very close to the extrema of 
+\begin_inset Formula $\cos\left(k\left(x_{0}-x_{1}\right)\right)$
+\end_inset
+
+ so long as 
+\begin_inset Formula $\frac{1}{x_{0}x_{1}}$
+\end_inset
+
+ is slowly varying (i.e.
+ as long as 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ are large).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Third Simulation: Triple Slit Interference
+\end_layout
+
+\begin_layout Standard
+Now, keep those two slits and add a slit right in the middle (top=160, bottom=14
+0).
+ Run the simulation until 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ has stabilized.
+ Find a point that's 
+\series bold
+a maximum along both the vertical and horizontal slices
+\series default
+.
+ Again, find this point as accurately as possible.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distance from Opening 0 (
+\begin_inset Formula $d_{0}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\left|d_{1}-d_{0}\right|}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\left|d_{2}-d_{0}\right|}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\frac{\left|d_{2}-d_{1}\right|}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Do the differences in the distances follow the same rule as before? Explain
+ why or why not?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+All the 
+\begin_inset Formula $\frac{\left|d_{x}-d_{y}\right|}{\lambda}$
+\end_inset
+
+ are still integers, so the rule still holds.
+ This is because to get a maximum, you still want each wave to work together,
+ so each pair should still add constructively.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Repeat that procedure with a minimum along both the vertical and horizontal
+ slices.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distance from Opening 0 (
+\begin_inset Formula $d_{0}$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\left|d_{1}-d_{0}\right|}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\left|d_{2}-d_{0}\right|}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\frac{\left|d_{2}-d_{1}\right|}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Do the differences in the distances follow the same rule as before? Explain
+ why or why not? Hint: if two of the waves canceled each other out, what
+ would happen to the third wave?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Here, not all the 
+\begin_inset Formula $\frac{\left|d_{x}-d_{y}\right|}{\lambda}$
+\end_inset
+
+ are half integer values.
+ Physically, the issue is that if two differed by half integer values, they'd
+ cancel out, but that would leave the third unscathed, so we wouldn't have
+ a minimum.
+ Our new minimization condition is that 
+\begin_inset Formula $\cos\left(kx_{0}\right)+\cos\left(kx_{1}\right)+\cos\left(kx_{2}\right)=0$
+\end_inset
+
+, which doesn't have such a simple solution as 
+\begin_inset Formula $\cos\left(kx_{0}\right)+\cos\left(kx_{1}\right)=0$
+\end_inset
+
+, our previous position.
+ In fact, it would be mathematically impossible for all the differences
+ to be half integer values.
+ If two were half integer values, the third would have an integer value.
+ In equation from, if 
+\begin_inset Formula $d_{0}-d_{1}=\left(n+\frac{1}{2}\right)\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{1}-d_{2}=\left(m+\frac{1}{2}\right)\lambda$
+\end_inset
+
+ then 
+\begin_inset Formula $d_{0}-d_{2}=d_{0}-d_{1}+d_{1}-d_{2}=\left(n+\frac{1}{2}\right)\lambda+\left(m+\frac{1}{2}\right)\lambda=\left(n+m+1\right)\lambda$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Fourth Simulation: Single Slit Diffraction
+\end_layout
+
+\begin_layout Subsubsection
+Background
+\end_layout
+
+\begin_layout Standard
+Before we run a simulation, we need to learn a bit about diffraction.
+ Take the case of two point sources separated by 
+\begin_inset Formula $\frac{\lambda}{4}$
+\end_inset
+
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:quarterwave"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement O
+overhang 0in
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename impossible.eps
+	width 3in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Two point sources separated by 
+\begin_inset Formula $\frac{\lambda}{4}$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:quarterwave"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Is it possible to have constructive interference in this case? Is it possible
+ to have destructive interference in this case? Explain.
+ Hints: What's the smallest value 
+\begin_inset Formula $\left|d_{0}-d_{1}\right|$
+\end_inset
+
+ can be to get destructive interference? Does that value occur anywhere?
+ Seemingly unrelated hint: 
+\begin_inset Formula $\left|\vec{a}+\vec{b}\right|\leq\left|\vec{a}\right|+\left|\vec{b}\right|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+It's still possible to have constructive interference in this case: make
+ an isosceles triangle so that 
+\begin_inset Formula $d_{1}=d_{0}$
+\end_inset
+
+.
+ However, destructive interference is impossible.
+ The seemingly unrelated hint says that one side of a triangle can have
+ a length that's at most as long as the sum of the other two sides: 
+\begin_inset Formula $d_{1}\leq d_{0}+\frac{\lambda}{4}$
+\end_inset
+
+ so 
+\begin_inset Formula $d_{1}-d_{0}\leq\frac{\lambda}{4}$
+\end_inset
+
+ making destructive interference impossible since, at a minimum, that requires
+ 
+\begin_inset Formula $d_{1}-d_{0}=\frac{\lambda}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Students usually didn't get the destructive part on their own.
+ To get them to see it, I'd first ask what line 
+\begin_inset Formula $\left|d_{1}-d_{0}\right|$
+\end_inset
+
+ is minimized along (
+\begin_inset Formula $y=0$
+\end_inset
+
+).
+ Then I'd ask them to guess where it's maximized; many would correctly guess
+ it's along the barrier.
+ Either way, I'd ask what 
+\begin_inset Formula $\left|d_{1}-d_{0}\right|$
+\end_inset
+
+ is at a point on the barrier above or below both openings.
+ I'd ask at more points until they saw that it's 
+\begin_inset Formula $\frac{\lambda}{4}$
+\end_inset
+
+ at all points along the barrier (except for the part of the barrier between
+ the openings).
+ Then I'd ask if 
+\begin_inset Formula $\left|d_{1}-d_{0}\right|$
+\end_inset
+
+ could be larger anywhere else, and they'd usually realize it couldn't be;
+ that's as far as we could get from the 
+\begin_inset Formula $\left|d_{1}-d_{0}\right|=0$
+\end_inset
+
+ line.
+\end_layout
+
+\begin_layout Plain Layout
+I accepted answers which made an argument using the triangle inequality
+ but didn't include any equations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What's the minimum separation between the sources needed to get destructive
+ interference? Where would the interference occur in that case? (Draw a
+ picture.)
+\begin_inset VSpace 2in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Following the previous logic, the minimum spacing would be 
+\begin_inset Formula $\frac{\lambda}{2}$
+\end_inset
+
+, and then destructive interference would occur along the barrier (except
+ for on the portion of the barrier between the two slits).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, if you had one wide slit, you'd expect different parts of the slit
+ to act like point sources and interfere with one another.
+ In fact, to rigorously analyze these slits, you'd say that there are an
+ infinite number of infinitesimal point sources along the opening.
+ I'm not going to go there.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diffraction.eps
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The top and middle source points are in black, while the ones below them
+ are in blue.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:diffraction"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, we can make arguments in the the limit where 
+\begin_inset Formula $d\gg W$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is small.
+ See Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:diffraction"
+
+\end_inset
+
+.
+ Suppose the top point in the slit and the middle point in the slit would
+ interfere destructively.
+ In the next section, we'll show that the smallest 
+\begin_inset Formula $\theta$
+\end_inset
+
+ this happens for is when 
+\begin_inset Formula $\frac{\lambda}{s2}=\sin\left(\theta\right)\approx\theta$
+\end_inset
+
+, where 
+\begin_inset Formula $s$
+\end_inset
+
+ is the distance between the sources.
+ Here, 
+\begin_inset Formula $s=\frac{W}{2}$
+\end_inset
+
+, where 
+\begin_inset Formula $W$
+\end_inset
+
+ is the width of the slit.
+ Putting that together, the first minimum occurs at 
+\begin_inset Formula $\theta=\frac{\lambda}{W}$
+\end_inset
+
+.
+ Now, if the top point and middle point interfere destructively, then so
+ do the second point from the top and the point below the middle because
+ they form the same triangle as the previous two points.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Ok, it's not exactly the same triangle, but it's very close to the same
+ in the limit we're working in.
+\end_layout
+
+\end_inset
+
+ So it goes, down the line; every point has a partner that cancels with
+ it.
+ So, the condition that holds for one pair of points holds overall: when
+ 
+\begin_inset Formula $\theta=\frac{\lambda}{W}$
+\end_inset
+
+, we have a minimum.
+\end_layout
+
+\begin_layout Subsubsection
+Simulation
+\end_layout
+
+\begin_layout Standard
+Set up the simulation so that there's just one big slit in the middle (top=200,
+ bottom=100), and run the simulation until 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ has stabilized.
+ Now, move the vertical slice all the way to the right edge of the plot.
+ The vertical plot of 
+\begin_inset Formula $E_{zRMS}$
+\end_inset
+
+ should show a big bump in the middle, a minimum to each side, and then
+ a smaller bump beyond that.
+ Find the 
+\begin_inset Formula $y$
+\end_inset
+
+ position of the minimum between the two bumps, and calculate the angle
+ the orange line makes with the horizontal.
+ Compare this to 
+\begin_inset Formula $\frac{\lambda}{W}$
+\end_inset
+
+.
+ Are we in the 
+\begin_inset Formula $d\gg W$
+\end_inset
+
+ limit?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I find the minimum in the simulation at 
+\begin_inset Formula $\left(599,46\right)$
+\end_inset
+
+, so 
+\begin_inset Formula $\theta=\arctan\left(\frac{150-46}{599-100}\right)=0.20548$
+\end_inset
+
+.
+ 
+\begin_inset Formula $150$
+\end_inset
+
+ is the 
+\begin_inset Formula $y$
+\end_inset
+
+ position of center of the domain, so the distance in 
+\begin_inset Formula $y$
+\end_inset
+
+ is 
+\begin_inset Formula $150-46$
+\end_inset
+
+.
+ The barrier is at 
+\begin_inset Formula $x=100$
+\end_inset
+
+, so 
+\begin_inset Formula $599-100$
+\end_inset
+
+ is the distance in 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+This is is only a couple percent off from the number we'd expect in the
+ far field limit, 
+\begin_inset Formula $\theta=\frac{20}{100}=0.2$
+\end_inset
+
+.
+ We're slightly closer to the more accurate approximation of 
+\begin_inset Formula $\theta=\arcsin\left(\frac{20}{100}\right)=0.20136$
+\end_inset
+
+.
+ So, I'd say we're in that limit, but barely.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Double Slit Interference and Diffraction Experiment
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename double_slit.eps
+	width 90page%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The double slit experiment.
+ If 
+\begin_inset Formula $d_{1},d_{2}\gg W$
+\end_inset
+
+, then 
+\begin_inset Formula $\theta_{1}\approx\theta\approx\theta_{2}$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:double"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename interference-diffraction data.eps
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of good data from the two slit interference/diffraction experiment.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:data"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this experiment, we're going to shine a laser through the two nearby
+ slits.
+ We'll see a mix of interference and diffraction because the slits are much
+ wider than 
+\begin_inset Formula $\lambda$
+\end_inset
+
+; there'll be the big center peak of diffraction modulated by the interference
+ pattern and smaller peaks to the sides.
+ See Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:data"
+
+\end_inset
+
+.
+ The plan is to measure the pattern and determine the laser's wavelength
+ from that.
+\end_layout
+
+\begin_layout Standard
+See Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double"
+
+\end_inset
+
+.
+ We're working in the limit of 
+\begin_inset Formula $d_{1},d_{2}\gg W$
+\end_inset
+
+.
+ That makes 
+\begin_inset Formula $\theta_{1}\approx\theta\approx\theta_{2}$
+\end_inset
+
+, so the two lines are roughly parallel.
+ That means the blue side of the triangle, 
+\begin_inset Formula $W\sin\left(\theta\right)$
+\end_inset
+
+, must be 
+\begin_inset Formula $\approx d_{2}-d_{1}$
+\end_inset
+
+.
+ For constructive interference we still need that 
+\begin_inset Formula $\left|d_{2}-d_{1}\right|=n\lambda$
+\end_inset
+
+ for some integer 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ That means 
+\begin_inset Formula $\frac{n\lambda}{W}=\sin\left(\theta\right)$
+\end_inset
+
+, which can further be approximated as 
+\begin_inset Formula $\frac{n\lambda}{W}\approx\theta$
+\end_inset
+
+ since we'll be working with small 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Similarly, for destructive interference, we'll need 
+\begin_inset Formula $\frac{\left(n+\frac{1}{2}\right)\lambda}{W}\approx\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As a check, here's a quick derivation with the law of cosines and some Taylor
+ expansion to show that it works out (similar to the derivation in lecture):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{1}^{2} & = & d_{2}^{2}+W^{2}-2d_{2}W\cos\left(\theta_{2}+\frac{\pi}{2}\right)\\
+ & = & d_{2}^{2}+W^{2}+2d_{2}W\sin\left(\theta_{2}\right)\\
+ & \approx & d_{2}^{2}+2d_{2}W\sin\left(\theta_{2}\right)\\
+d_{1} & = & d_{2}\sqrt{1+2\frac{W}{d_{2}}\sin\left(\theta_{2}\right)}\\
+ & \approx & d_{2}-W\sin\left(\theta_{2}\right)\\
+d_{2}-d_{1} & = & W\sin\left(\theta_{2}\right)\\
+ & \approx & W\sin\left(\theta\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That derivation may seem a little sketchy because we're approximating the
+ angles to be the same, but we're not doing the same for the distances.
+ That's because a tiny change in the distances can have a large effect,
+ so I used a more accurate approximation for them.
+ For example, red light has 
+\begin_inset Formula $\lambda\approx680nm$
+\end_inset
+
+, so a change in 
+\begin_inset Formula $\left|d_{1}-d_{2}\right|$
+\end_inset
+
+ of only 
+\begin_inset Formula $340nm$
+\end_inset
+
+ can get you from constructive to destructive interference -- from light
+ to darkness.
+\end_layout
+
+\begin_layout Standard
+Here's the setup procedure:
+\end_layout
+
+\begin_layout Enumerate
+Download the PASCO experiment file from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://badger.physics.wisc.edu/lab/datastudio/phys208/l01a_207.ds"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Hook up everything
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Power to the laser
+\end_layout
+
+\begin_layout Enumerate
+Light Sensor to port A
+\end_layout
+
+\begin_layout Enumerate
+Rotational Motion Sensor yellow plug to port 1 and black plug to port 2
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Set the wheel on the light sensor so that slit 1 is at the bottom position.
+\end_layout
+
+\begin_layout Enumerate
+Set light sensor gain switch to 10.
+ If your signal ends up being too small or too large (i.e.
+ it gets clipped at 50), then adjust this gain switch.
+\end_layout
+
+\begin_layout Enumerate
+Remove the single slit holder, and set double slit holder about 50cm from
+ the light sensor (the distance isn't critical).
+\end_layout
+
+\begin_layout Enumerate
+Turn the double slit wheel so that the 
+\begin_inset Formula $a=0.08mm$
+\end_inset
+
+ 
+\begin_inset Formula $d=0.50mm$
+\end_inset
+
+ pattern is at the 3 o'clock position.
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ is the slit width.
+ Their 
+\begin_inset Formula $d$
+\end_inset
+
+ is our 
+\begin_inset Formula $W$
+\end_inset
+
+, the spacing between the slits.
+\end_layout
+
+\begin_layout Enumerate
+Center the light sensor.
+\end_layout
+
+\begin_layout Enumerate
+Turn on the laser.
+ If you don't see the pattern on the light sensor or if the pattern isn't
+ centered and level, talk to me; the setup may need some fine adjustment.
+\end_layout
+
+\begin_layout Standard
+Now that everything is set up, move the light sensor to one side.
+ Start taking data.
+ Then, slowly and smoothly move the sensor to the other side by hand.
+ When you're done, stop the measurement.
+\end_layout
+
+\begin_layout Standard
+Now that you have the data, use it to find the laser's wavelength by filling
+ out the following table.
+ 
+\begin_inset Formula $y$
+\end_inset
+
+ is the distance from the first (central) maximum -- the highest peak.
+ 
+\begin_inset Formula $\theta\approx\frac{y}{D}$
+\end_inset
+
+ where 
+\begin_inset Formula $D$
+\end_inset
+
+ is the distance from the slits to the sensor (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:double"
+
+\end_inset
+
+).
+ You know what 
+\begin_inset Formula $\frac{\left|d_{1}-d_{2}\right|}{\lambda}$
+\end_inset
+
+ should be in each of the cases.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Extrema
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\left|d_{1}-d_{2}\right|}{\lambda}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda$
+\end_inset
+
+ in meters
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Second Maximum
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+First Minimum
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+First (Central) Maximum
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---0---
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---0---
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+---0---
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+--- ---
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+First Minimum
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Second Maximum
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Check your numbers against the wavelength written on the back of the laser;
+ you should be able to get pretty good agreement.
+\end_layout
+
+\begin_layout Standard
+Finally, put in the single slit holder, and check out the patterns produced
+ by the square and hexagon (you should see a square and hexagonal dot pattern).
+ You can use the viewing screen for this.
+ These are just a few of the cool patterns you can get using diffraction
+ in 3D.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bib"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Anonymous Quiz
+\end_layout
+
+\begin_layout Standard
+Now, it's time for a little quiz to see how effective this lab was.
+ Answer the questions on it without looking back at previous parts of the
+ lab, and turn in this sheet.
+ Don't put your name on it; it won't effect your grade.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename quiz.eps
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The two sources shown in the figure are in phase and 
+\begin_inset Formula $2.5\lambda$
+\end_inset
+
+ apart.
+ Determine if there is constructive interference, destructive interference,
+ or neither at points A, B, and C.
+ Show your work.
+ You may want to use a calculator for at least one of them.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 3in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+At point A, 
+\begin_inset Formula $\left|d_{0}-d_{1}\right|=0$
+\end_inset
+
+ (since 
+\begin_inset Formula $d_{0}=d_{1}=\lambda\sqrt{400^{2}+1.25^{2}}$
+\end_inset
+
+) so we have constructive interference.
+\end_layout
+
+\begin_layout Plain Layout
+At point B, 
+\begin_inset Formula $\left|d_{0}-d_{1}\right|=2.5\lambda$
+\end_inset
+
+ so we have destructive interference (since 
+\begin_inset Formula $d_{0}=\left(300-1.25\right)\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{1}=\left(300+1.25\right)\lambda$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Plain Layout
+At point C, 
+\begin_inset Formula $d_{0}=\lambda\sqrt{400^{2}+(300-1.25)^{2}}=499.25\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{1}=\lambda\sqrt{400^{2}+(300+1.25)^{2}}=500.75\lambda$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\left|d_{0}-d_{1}\right|=1.5\lambda$
+\end_inset
+
+ and we have destructive interference.
+ Another way to answer this (without a calculator) is to recall that in
+ the 
+\begin_inset Formula $d\gg W$
+\end_inset
+
+ limit, 
+\begin_inset Formula $\left|d_{1}-d_{0}\right|=W\sin\left(\theta\right)=\lambda\frac{5}{2}\frac{3}{5}=\frac{3}{2}\lambda$
+\end_inset
+
+.
+ You know 
+\begin_inset Formula $\sin\left(\theta\right)=\frac{3}{5}$
+\end_inset
+
+ since it's a 3-4-5 triangle.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename quiz2.eps
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the drawing above, the light from three slits is being observed at one
+ far away point.
+ Assume that the point is far enough away that the three lines to it are
+ approximately parallel.
+ First, consider just the left and middle sources.
+ Do they constructively or destructively interfere at the observation point?
+ If you now consider all three sources, will the intensity at the observation
+ point increase or decrease relative the the case with just the left two
+ sources?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2.5in
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+For the first two slits, 
+\begin_inset Formula $\left|d_{0}-d_{1}\right|=\lambda$
+\end_inset
+
+, so they interfere constructively.
+ However, 
+\begin_inset Formula $\left|d_{1}-d_{2}\right|=\frac{\lambda}{2}$
+\end_inset
+
+ and thus 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left|d_{0}-d_{2}\right|=\frac{3\lambda}{2}$
+\end_inset
+
+, so the third slit causes destructive interference with one of the first
+ two slits.
+ That means the intensity will be diminished when it's included.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comments on the lab
+\end_layout
+
+\end_body
+\end_document
