@@ -1,21 +1,10 @@
-#Interference Inference Interface
-![The graphical user interface.](https://mywebspace.wisc.edu/lnmaurer/web/iii/double_slit.png)
+This is the worksheet that evolved from the one I use for teaching the interference and diffraction lab for UW-Madison's Physics 248 in Spring 2012. That class is the introductory E&M class for physics majors, but the worksheet could probably be modified to work for other classes.
 
-This is a simple 2D FDTD simulation of an electromagnetic TMz wave made for teaching in an instructional lab. I'll post more information later.
+The lab relies on the [Interference Inference Interface](https://github.com/lnmaurer/Interference-Inference-Interface), a wave simulation.
 
+The main file is "InterferenceDiffraction Worksheet.lyx", a [lyx](http://www.lyx.org/) document.
 
-### The code is available under the [GNU Public License Version 2](http://www.gnu.org/licenses/gpl-2.0.html)
+That file contains notes with answers to the questions.
 
-  This program is free software; you can redistribute it and/or
-  modify it under the terms of the GNU General Public License
-  as published by the Free Software Foundation; using version 2
-  of the License.
-
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+![License image](http://i.creativecommons.org/l/by/3.0/88x31.png)
+Interference Inference Interface Worksheet by [Leon Nathaniel Maurer](https://mywebspace.wisc.edu/lnmaurer/web/) is licensed under a [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).
