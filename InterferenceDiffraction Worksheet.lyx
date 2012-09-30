@@ -69,7 +69,7 @@ LC-1: Diffraction and Interference
 \end_layout
 
 \begin_layout Date
-5/15/12
+09/29/2012
 \end_layout
 
 \begin_layout Standard
@@ -98,11 +98,10 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Much of this lab is a repeat of what was covered in lecture.
- While that means some of this will be redundant, my hope is to help you
- build up intuition to support the lecture's equations.
+Although you've already seen much of this in lecture, my hope is to help
+ you build intuition that supports the equations in your notes.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Physics education research has shown that this material is tricky to teach.
@@ -123,12 +122,11 @@ key "wosilait:S5"
 
 \begin_layout Standard
 Diffraction and interference are phenomena that happen when waves interact.
- There's not a clear distinction between the two, but -- for our purposes
- -- we'll think about interference as the effect arising from point sources
- (wave sources that are very small -- like the single oscillating charges
- in lecture) and diffraction as the effect from large sources.
- I realize that's vague, but it should become clearer by the end of the
- lab.
+ There's not a clear distinction between the two, but---for our purposes---inter
+ference is the effect arising from point sources (small wave sources --
+ like the single oscillating charges in lecture), and diffraction is the
+ effect from large sources.
+ What's the cutoff between the two? You'll find out!
 \end_layout
 
 \begin_layout Standard
@@ -183,10 +181,9 @@ name "fig:Young"
 \end_layout
 
 \begin_layout Standard
-The ancestor to these experiments was first performed by Thomas Young in
- 1803, and it was instrumental in convincing scientists that light was a
- wave.
- Before that, most held Newton's view that light was made out of particles.
+The first light interference experiment was performed by Thomas Young in
+ 1803, and it was instrumental in showing that light is a wave.
+ Previously, most scientists held Newton's view: light was made out of particles.
  See Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -194,7 +191,7 @@ reference "fig:Young"
 
 \end_inset
 
- for his illustration of the double slit interference experiment; you'll
+ for Young's illustration of the double slit interference experiment; you'll
  make a similar picture soon on the computer.
  He did some interesting experiments before that too, including one which
  would make MacGyver proud: he measured the wavelength of light using only
@@ -205,9 +202,19 @@ key "Young1802,Young1804"
 
 \end_inset
 
- Thomas Young's exploits weren't limited to physics; he did everything from
- help decipher the Rosetta Stone to study how the heart works.
- The cited interestingly-titled book about him has been on my reading list
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I've done this too; it's a neat experiment.
+\end_layout
+
+\end_inset
+
+ Young's exploits weren't limited to physics; he did everything from helping
+ decipher the Rosetta Stone to studding how the heart works.
+ The cited, interestingly-titled book about him has been on my reading list
  for a while.
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -363,24 +370,14 @@ The top left plot shows the instantaneous value of
 \end_inset
 
  component of the electric field).
- Black is the minimum value, white is the maximum value, and shades of gray
- are in between.
  The bottom left plot shows
 \begin_inset Formula $E_{zRMS}$
 \end_inset
 
  -- an average value instead of an instantaneous one.
- Here, black corresponds to a value of zero (since negative RMS values aren't
- possible).
- This plot can also be made to show 
-\begin_inset Formula $E_{zRMS}^{2}$
-\end_inset
-
-, which is proportional to the light wave's intensity.
-\end_layout
-
-\begin_layout Standard
-The other three plots show 1D slices taken along the vertical and horizontal
+ Black is the minimum value, white is the maximum value, and shades of gray
+ are in between.
+ The other three plots show 1D slices taken along the vertical and horizontal
  dashed lines.
  The yellow curve shows 
 \begin_inset Formula $E_{z}$
@@ -395,24 +392,13 @@ The other three plots show 1D slices taken along the vertical and horizontal
 \end_inset
 
 .
- The zero for both curves is right down the middle of the figures' long
- axes.
- However, the green curve can also be set to show 
-\begin_inset Formula $E_{zRMS}$
-\end_inset
-
- or 
-\begin_inset Formula $E_{zRMS}^{2}$
-\end_inset
-
-, in which case zero is along an edge of the plot.
 \end_layout
 
 \begin_layout Standard
 The cyan text shows the distances from the center of each opening to the
- intersection of the slices.
+ intersection of the dashed lines.
  The text between the two vertical plots shows information about the point
- where the slices intersect: its position, 
+ where the dashed lines intersect: its position, 
 \begin_inset Formula $E_{z}$
 \end_inset
 
@@ -425,14 +411,6 @@ The cyan text shows the distances from the center of each opening to the
 
 \begin_layout Standard
 The right part of the screen lets you set the openings in the barrier.
-\end_layout
-
-\begin_layout Standard
-Note that for the 2D plots, 
-\begin_inset Formula $y$
-\end_inset
-
- is zero at the top and increases as you go down.
 \end_layout
 
 \begin_layout Subsection
@@ -504,8 +482,7 @@ reference "fig:water"
 
 \end_inset
 
- caused by a drop of water? The point sources in lecture produce waves similar
- to that in some ways.
+ caused by a drop of water?
 \end_layout
 
 \begin_layout Standard
@@ -538,7 +515,11 @@ What would
 \begin_inset Formula $E_{zRMS}$
 \end_inset
 
- look like for the lecture source and how is this different from the 
+ look like in the 
+\begin_inset Formula $xy$
+\end_inset
+
+ plane for the lecture source, and how is this different from the 
 \begin_inset Formula $E_{zRMS}$
 \end_inset
 
@@ -578,8 +559,8 @@ Second Simulation: Double Slit Interference
 \end_layout
 
 \begin_layout Standard
-Now that we have a basis for comparison, set up the barriers with two slits:
- (top=70, bottom=50) and (top=250, bottom=230).
+Set up the barriers with two slits: (top=70, bottom=50) and (top=250, bottom=230
+).
  Run the simulation until 
 \begin_inset Formula $E_{zRMS}$
 \end_inset
@@ -591,23 +572,26 @@ Now that we have a basis for comparison, set up the barriers with two slits:
 
  along the vertical 1D slice.
  This is known as constructive interference.
- In this lab, don't measure the global maxima that are right next to the
+ 
+\emph on
+In this lab, don't measure the global maxima that are right next to the
  openings in the barrier.
 \end_layout
 
 \begin_layout Standard
 Measure the positions as accurately as possible; use the arrow keys for
- fine control and watch the value of 
+ fine control and home in on the maximum by watching the value of 
 \begin_inset Formula $E_{zRMS}$
 \end_inset
 
- at the intersection of the slices to home in on the maximum.
- For each maximum, record the distances from the two openings in the table,
- and then fill out the remaining columns (the wavelength, 
+ where the dashed lines intersect.
+ For each maximum, record the distances from the two openings, and then
+ fill out the remaining columns.
+ 
 \begin_inset Formula $\lambda=20$
 \end_inset
 
-).
+ is the wavelength.
 \end_layout
 
 \begin_layout Standard
@@ -1217,15 +1201,15 @@ status open
 
 \begin_layout Standard
 Now, let's figure out why that is.
- The intersection of the lines in Figure 
+ In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:constructive"
 
 \end_inset
 
- is a point of constructive or destructive interference.
- There are marks 
+, the lines intersect at a point of constructive or destructive interference.
+ Along those lines, there are small marks 
 \series bold
 every quarter wavelength
 \series default
@@ -1233,13 +1217,13 @@ every quarter wavelength
 \series bold
 every wavelength
 \series default
- along the lines connecting the openings' centers to the measurement point.
+.
  Draw a sinusoidal wave along each of these lines, assuming that the wave
  is a 
 \series bold
 maximum at the opening
 \series default
- and that the waves' amplitude doesn't decrease with distance.
+ and that the wave's amplitude doesn't decrease with distance.
 \end_layout
 
 \begin_layout Standard
@@ -1291,7 +1275,8 @@ name "fig:constructive"
 \end_layout
 
 \begin_layout Standard
-In this case, would the measurement point be a maximum or a minimum in 
+In this case, would the intersection point be a maximum or a minimum in
+ 
 \begin_inset Formula $E_{zRMS}$
 \end_inset
 
@@ -1374,7 +1359,8 @@ name "fig:destructive"
 \end_layout
 
 \begin_layout Standard
-In this case, would the measurement point be a maximum or a minimum in 
+In this case, would the intersection point be a maximum or a minimum in
+ 
 \begin_inset Formula $E_{zRMS}$
 \end_inset
 
@@ -1403,7 +1389,11 @@ The top wave will be at a maxima, and the bottom wave will be at a minima,
 Those situations were special cases.
  In one, both distances were an integer number of wavelengths, but that's
  not required for constructive interference; all that's necessary is that
- the difference between the lengths is an integral number of wavelengths.
+ the 
+\emph on
+difference
+\emph default
+ between the lengths is an integral number of wavelengths.
  That insures that both waves are doing the same thing at the interference
  point; they're in phase (so that they add together instead of canceling
  one another).
@@ -1420,12 +1410,8 @@ Let's show that mathematically.
 \end_inset
 
  is the distance along the second line.
- Then the curves you drew were 
-\begin_inset Formula $\cos\left(kx_{0}\right)$
-\end_inset
-
- and 
-\begin_inset Formula $\cos\left(kx_{1}\right)$
+ Both curves you drew were 
+\begin_inset Formula $\cos\left(kx\right)$
 \end_inset
 
 .
@@ -1502,9 +1488,9 @@ Now, none of the minima in
 \begin_inset Formula $E_{zRMS}$
 \end_inset
 
- are zeros.
- We could show that they should be zeros using an argument similar to the
- one you just made.
+ are zeros, although some are quite small.
+ Using an argument similar to the one you just made, we could show that
+ they should be zero.
  However, we made two assumptions earlier, in drawing the waves.
  Which one of them is wrong? How does that explain why the minima aren't
  zeros?
@@ -2336,11 +2322,7 @@ Set up the simulation so that there's just one big slit in the middle (top=200,
 \end_inset
 
 .
- Are we in the 
-\begin_inset Formula $d\gg W$
-\end_inset
-
- limit?
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2353,11 +2335,11 @@ status open
 
 \begin_layout Plain Layout
 I find the minimum in the simulation at 
-\begin_inset Formula $\left(599,46\right)$
+\begin_inset Formula $\left(599,42\right)$
 \end_inset
 
 , so 
-\begin_inset Formula $\theta=\arctan\left(\frac{150-46}{599-100}\right)=0.20548$
+\begin_inset Formula $\theta=\arctan\left(\frac{150-42}{599-100}\right)=0.213$
 \end_inset
 
 .
@@ -2374,7 +2356,7 @@ I find the minimum in the simulation at
 \end_inset
 
  is 
-\begin_inset Formula $150-46$
+\begin_inset Formula $150-42$
 \end_inset
 
 .
@@ -2399,13 +2381,7 @@ This is is only a couple percent off from the number we'd expect in the
 \begin_inset Formula $\theta=\frac{20}{100}=0.2$
 \end_inset
 
-.
- We're slightly closer to the more accurate approximation of 
-\begin_inset Formula $\theta=\arcsin\left(\frac{20}{100}\right)=0.20136$
-\end_inset
-
-.
- So, I'd say we're in that limit, but barely.
+, but I'd say we're close to, but a bit beyond, the limit.
 \end_layout
 
 \end_inset
@@ -2725,7 +2701,11 @@ Now that you have the data, use it to find the laser's wavelength by filling
 \begin_inset Formula $y$
 \end_inset
 
- is the distance from the first (central) maximum -- the highest peak.
+ is the distance 
+\emph on
+to
+\emph default
+ the first (central) maximum -- the highest peak.
  
 \begin_inset Formula $\theta\approx\frac{y}{D}$
 \end_inset
